@@ -28,6 +28,14 @@ function changeColor(e) {
 
 const customGridBtn = document.querySelector("#custom-grid-button");
 
-customGridBtn.addEventListener("click", () => {
-  prompt("How many squares per side? Max is 100.");
-});
+customGridBtn.addEventListener("click", getCustomGridSize);
+
+function getCustomGridSize() {
+  let customSize = prompt("How many squares per side? Max is 100.");
+  if (customSize < 1 || customSize > 100 || isNaN(customSize)) {
+    alert("Wrong input.");
+  } else {
+    // console.log(Math.floor(customSize));
+    return Math.floor(customSize);
+  }
+}
