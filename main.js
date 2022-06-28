@@ -25,3 +25,9 @@ function changeColor(e) {
 // function getGridItemWidth(){
 //     document.body.clientWidth
 // }
+
+const customGridBtn = document.querySelector("#custom-grid-button");
+
+customGridBtn.addEventListener("click", () => {
+  prompt("How many squares per side? Max is 100.");
+});
