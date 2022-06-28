@@ -6,3 +6,21 @@
   box-sizing: border-box;
   font-family: "JetBrains Mono", monospace;
 }
+
+.grid {
+  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  aspect-ratio: 1;
+}
+
+.grid-item {
+  background-color: white;
+  border: 2px solid black;
+  height: 100%;
+}
+
+.grid-item-hovered {
+  background-color: black;
+}
