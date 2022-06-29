@@ -61,3 +61,10 @@ function createCustomGrid() {
   createGridItems(customSize);
   addHoverColoring();
 }
+
+function rainbow() {
+  let redRGB = Math.round(Math.random * 255);
+  let greenRGB = Math.round(Math.random * 255);
+  let blueRGB = Math.round(Math.random * 255);
+  style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
+}
