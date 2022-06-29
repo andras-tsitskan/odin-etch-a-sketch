@@ -12,30 +12,52 @@ function createGridItems(squaresPerSide) {
 
 createGridItems(16);
 
-const gridItems = document.querySelectorAll(".grid-item");
+let gridItems = document.querySelectorAll(".grid-item");
 
 for (const item of gridItems) {
   item.addEventListener("mouseenter", changeColor);
+}
+
+function addHoverColoring() {
+  gridItems = document.querySelectorAll(".grid-item");
+  for (const item of gridItems) {
+    item.addEventListener("mouseenter", changeColor);
+  }
 }
 
 function changeColor(e) {
   e.target.classList.add("grid-item-hovered");
 }
 
-// function getGridItemWidth(){
-//     document.body.clientWidth
-// }
-
 const customGridBtn = document.querySelector("#custom-grid-button");
 
-customGridBtn.addEventListener("click", getCustomGridSize);
+customGridBtn.addEventListener("click", createCustomGrid);
+
+let customSize;
 
 function getCustomGridSize() {
-  let customSize = prompt("How many squares per side? Max is 100.");
+  customSize = prompt("How many squares per side? Max is 100.");
   if (customSize < 1 || customSize > 100 || isNaN(customSize)) {
-    alert("Wrong input.");
+    alert("Wrong input. Resetting to default.");
+    customSize = 16;
+    return customSize;
   } else {
-    // console.log(Math.floor(customSize));
-    return Math.floor(customSize);
+    customSize = Math.floor(customSize);
+    return customSize;
   }
+}
+
+function removeGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+}
+
+function createCustomGrid() {
+  getCustomGridSize();
+  removeGrid();
+  grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
+  createGridItems(customSize);
+  addHoverColoring();
 }
