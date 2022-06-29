@@ -7,7 +7,24 @@
   font-family: "JetBrains Mono", monospace;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
 .grid {
+  width: 600px;
+  margin: 0 auto;
   background-color: aquamarine;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -17,10 +34,26 @@
 
 .grid-item {
   background-color: white;
-  border: 2px solid black;
+  border: 1px solid black;
   height: 100%;
 }
 
 .grid-item-hovered {
+  background-color: black;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: hsl(0, 0%, 90%);
+}
+
+a:hover {
+  color: white;
   background-color: black;
 }
