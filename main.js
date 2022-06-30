@@ -17,13 +17,13 @@ createGridItems(16);
 let gridItems = document.querySelectorAll(".grid-item");
 
 for (const item of gridItems) {
-  item.addEventListener("mouseenter", changeColor);
+  item.addEventListener("mouseenter", changeColorToBlack);
 }
 
-function changeColor(e) {
+function changeColorToBlack(e) {
   e.target.style.backgroundColor = "black";
 }
-// function changeColor(e) {
+// function changeColorToBlack(e) {
 //   e.target.classList.add("grid-item-hovered");
 // }
 
@@ -71,7 +71,7 @@ function removeGrid() {
 function addHoverColoring() {
   gridItems = document.querySelectorAll(".grid-item");
   for (const item of gridItems) {
-    item.addEventListener("mouseenter", changeColor);
+    item.addEventListener("mouseenter", changeColorToBlack);
   }
 }
 
