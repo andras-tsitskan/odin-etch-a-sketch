@@ -21,8 +21,11 @@ for (const item of gridItems) {
 }
 
 function changeColor(e) {
-  e.target.classList.add("grid-item-hovered");
+  e.target.style.backgroundColor = "black";
 }
+// function changeColor(e) {
+//   e.target.classList.add("grid-item-hovered");
+// }
 
 // Custom grid functionality.
 const customGridBtn = document.querySelector("#custom-grid-button");
@@ -72,9 +75,14 @@ clearGridBtn.addEventListener("click", clearGrid);
 
 function clearGrid() {
   for (const item of gridItems) {
-    item.classList.remove("grid-item-hovered");
+    item.style.backgroundColor = "white";
   }
 }
+// function clearGrid() {
+//   for (const item of gridItems) {
+//     item.classList.remove("grid-item-hovered");
+//   }
+// }
 
 // Not yet implemented different colours when hovering.
 function rainbow() {
