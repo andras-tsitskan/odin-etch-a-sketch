@@ -106,6 +106,7 @@ clearGridBtn.addEventListener("click", clearGrid);
 function clearGrid() {
   for (const item of gridItems) {
     item.style.backgroundColor = "white";
+    item.style.opacity = 1;
   }
 }
 // function clearGrid() {
