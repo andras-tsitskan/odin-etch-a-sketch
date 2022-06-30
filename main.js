@@ -20,13 +20,6 @@ for (const item of gridItems) {
   item.addEventListener("mouseenter", changeColor);
 }
 
-function addHoverColoring() {
-  gridItems = document.querySelectorAll(".grid-item");
-  for (const item of gridItems) {
-    item.addEventListener("mouseenter", changeColor);
-  }
-}
-
 function changeColor(e) {
   e.target.classList.add("grid-item-hovered");
 }
@@ -62,6 +55,13 @@ function getCustomGridSize() {
 function removeGrid() {
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
+  }
+}
+
+function addHoverColoring() {
+  gridItems = document.querySelectorAll(".grid-item");
+  for (const item of gridItems) {
+    item.addEventListener("mouseenter", changeColor);
   }
 }
 
