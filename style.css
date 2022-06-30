@@ -22,6 +22,11 @@ header {
   flex-direction: column;
 }
 
+div.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
 .grid {
   width: 600px;
   margin: 0 auto;
@@ -45,6 +50,10 @@ header {
 footer {
   text-align: center;
   padding: 1rem;
+}
+
+button {
+  padding: 0 0.5rem;
 }
 
 a {
