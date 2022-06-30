@@ -10,8 +10,10 @@ function createGridItems(squaresPerSide) {
   }
 }
 
+// Create initial grid.
 createGridItems(16);
 
+// Colouring functionality.
 let gridItems = document.querySelectorAll(".grid-item");
 
 for (const item of gridItems) {
@@ -29,9 +31,19 @@ function changeColor(e) {
   e.target.classList.add("grid-item-hovered");
 }
 
+// Custom grid functionality.
 const customGridBtn = document.querySelector("#custom-grid-button");
 
 customGridBtn.addEventListener("click", createCustomGrid);
+
+function createCustomGrid() {
+  getCustomGridSize();
+  removeGrid();
+  grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
+  createGridItems(customSize);
+  addHoverColoring();
+}
 
 let customSize;
 
@@ -53,22 +65,7 @@ function removeGrid() {
   }
 }
 
-function createCustomGrid() {
-  getCustomGridSize();
-  removeGrid();
-  grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
-  createGridItems(customSize);
-  addHoverColoring();
-}
-
-function rainbow() {
-  let redRGB = Math.round(Math.random * 255);
-  let greenRGB = Math.round(Math.random * 255);
-  let blueRGB = Math.round(Math.random * 255);
-  style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
-}
-
+// Clear grid functionality.
 const clearGridBtn = document.querySelector("#clear-grid-button");
 
 clearGridBtn.addEventListener("click", clearGrid);
@@ -77,4 +74,12 @@ function clearGrid() {
   for (const item of gridItems) {
     item.classList.remove("grid-item-hovered");
   }
+}
+
+// Not yet implemented different colours when hovering.
+function rainbow() {
+  let redRGB = Math.round(Math.random * 255);
+  let greenRGB = Math.round(Math.random * 255);
+  let blueRGB = Math.round(Math.random * 255);
+  style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
 }
