@@ -30,7 +30,7 @@ div.buttons {
 .grid {
   width: 600px;
   margin: 0 auto;
-  background-color: aquamarine;
+  background-color: black;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);

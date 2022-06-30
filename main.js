@@ -34,6 +34,13 @@ function changeColorToColorful(e) {
   e.target.style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
 }
 
+function changeColorToShadesOfGray(e) {
+  if (e.target.style.opacity === "") {
+    e.target.style.opacity = 1;
+  }
+  e.target.style.opacity = +e.target.style.opacity - 0.1;
+}
+
 // Custom grid functionality.
 const customGridBtn = document.querySelector("#custom-grid-button");
 
