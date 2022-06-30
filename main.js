@@ -77,8 +77,24 @@ function removeGrid() {
 
 function addHoverColoring() {
   gridItems = document.querySelectorAll(".grid-item");
-  for (const item of gridItems) {
-    item.addEventListener("mouseenter", changeColorToBlack);
+
+  switch (colourScheme) {
+    case "black":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToBlack);
+      }
+      break;
+    case "colourful":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToColorful);
+      }
+      break;
+
+    case "gray":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToShadesOfGray);
+      }
+      break;
   }
 }
 
@@ -97,3 +113,18 @@ function clearGrid() {
 //     item.classList.remove("grid-item-hovered");
 //   }
 // }
+
+const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
+const colourSchemeColourfulBtn = document.querySelector(
+  "#js-colour-scheme-colourful"
+);
+const colourSchemeGrayBtn = document.querySelector("#js-colour-scheme-gray");
+
+let colourScheme = "black";
+
+colourSchemeBlackBtn.addEventListener("click", () => (colourScheme = "black"));
+colourSchemeColourfulBtn.addEventListener(
+  "click",
+  () => (colourScheme = "colourful")
+);
+colourSchemeGrayBtn.addEventListener("click", () => (colourScheme = "gray"));
