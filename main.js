@@ -27,6 +27,13 @@ function changeColor(e) {
 //   e.target.classList.add("grid-item-hovered");
 // }
 
+function changeColorToColorful(e) {
+  let redRGB = Math.round(Math.random() * 255);
+  let greenRGB = Math.round(Math.random() * 255);
+  let blueRGB = Math.round(Math.random() * 255);
+  e.target.style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
+}
+
 // Custom grid functionality.
 const customGridBtn = document.querySelector("#custom-grid-button");
 
@@ -83,11 +90,3 @@ function clearGrid() {
 //     item.classList.remove("grid-item-hovered");
 //   }
 // }
-
-// Not yet implemented different colours when hovering.
-function rainbow() {
-  let redRGB = Math.round(Math.random * 255);
-  let greenRGB = Math.round(Math.random * 255);
-  let blueRGB = Math.round(Math.random * 255);
-  style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
-}
