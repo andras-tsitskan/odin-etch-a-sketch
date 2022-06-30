@@ -68,3 +68,13 @@ function rainbow() {
   let blueRGB = Math.round(Math.random * 255);
   style.backgroundColor = `rgb(${redRGB},${greenRGB},${blueRGB})`;
 }
+
+const clearGridBtn = document.querySelector("#clear-grid-button");
+
+clearGridBtn.addEventListener("click", clearGrid);
+
+function clearGrid() {
+  for (const item of gridItems) {
+    item.classList.remove("grid-item-hovered");
+  }
+}
