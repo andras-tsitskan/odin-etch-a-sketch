@@ -173,17 +173,20 @@ function clearGrid() {
   }
 }
 
-const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
-const colourSchemeColourfulBtn = document.querySelector(
-  "#js-colour-scheme-colourful"
-);
-const colourSchemeGrayBtn = document.querySelector("#js-colour-scheme-gray");
+// Reset to default functionality.
+const resetToDefaultBtn = document.querySelector("#js-reset-to-default-button");
 
-let colourScheme = "black";
+resetToDefaultBtn.addEventListener("click", resetToDefault);
 
-colourSchemeBlackBtn.addEventListener("click", () => (colourScheme = "black"));
-colourSchemeColourfulBtn.addEventListener(
-  "click",
-  () => (colourScheme = "colourful")
-);
-colourSchemeGrayBtn.addEventListener("click", () => (colourScheme = "gray"));
+function resetToDefault() {
+  customSize = 16;
+  colourScheme = "black";
+  colourSchemeBlackBtn.classList.add("button-toggled");
+  colourSchemeColourfulBtn.classList.remove("button-toggled");
+  colourSchemeGrayBtn.classList.remove("button-toggled");
+  removeGrid();
+  grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
+  createGridItems(customSize);
+  addHoverColoring();
+}
