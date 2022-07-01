@@ -27,11 +27,6 @@ hr {
   width: 100%;
 }
 
-/* div.buttons {
-  display: flex;
-  justify-content: space-around;
-} */
-
 .grid {
   width: 600px;
   margin: 0 auto;
@@ -46,10 +41,6 @@ hr {
   background-color: white;
   border: 1px solid black;
   height: 100%;
-}
-
-.grid-item-hovered {
-  background-color: black;
 }
 
 footer {
