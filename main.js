@@ -1,48 +1,15 @@
 "use strict";
 
 // Set initial (default) values.
+
 let customSize = 16;
 let colourScheme = "black";
 let isInputCorrect = true;
 const grid = document.querySelector(".grid");
 let gridItems = document.querySelectorAll(".grid-item");
 
-// Change-colour-buttons' functionality.
-const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
-const colourSchemeColourfulBtn = document.querySelector(
-  "#js-colour-scheme-colourful"
-);
-const colourSchemeGrayBtn = document.querySelector("#js-colour-scheme-gray");
+// Populating grid with grid items functionality.
 
-colourSchemeBlackBtn.addEventListener("click", (e) => {
-  colourScheme = "black";
-  e.target.classList.add("button-toggled");
-  colourSchemeColourfulBtn.classList.remove("button-toggled");
-  colourSchemeGrayBtn.classList.remove("button-toggled");
-  removeGrid();
-  createGridItems(customSize);
-  addHoverColouring();
-});
-
-colourSchemeColourfulBtn.addEventListener("click", (e) => {
-  colourScheme = "colourful";
-  e.target.classList.add("button-toggled");
-  colourSchemeBlackBtn.classList.remove("button-toggled");
-  colourSchemeGrayBtn.classList.remove("button-toggled");
-  removeGrid();
-  createGridItems(customSize);
-  addHoverColouring();
-});
-
-colourSchemeGrayBtn.addEventListener("click", (e) => {
-  colourScheme = "gray";
-  e.target.classList.add("button-toggled");
-  colourSchemeBlackBtn.classList.remove("button-toggled");
-  colourSchemeColourfulBtn.classList.remove("button-toggled");
-  removeGrid();
-  createGridItems(customSize);
-  addHoverColouring();
-});
 function createGridItems(squaresPerSide) {
   for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
     let newGridItem = document.createElement("div");
@@ -51,20 +18,8 @@ function createGridItems(squaresPerSide) {
   }
 }
 
-// Set initial (default) values.
-let customSize = 16;
-let colourScheme = "black";
-
-// Create initial grid.
-function createInitialGrid() {
-  createGridItems(customSize);
-  colourSchemeBlackBtn.classList.add("button-toggled");
-  addHoverColouring();
-}
-
-createInitialGrid();
-
 // Colouring functionality.
+
 function addHoverColouring() {
   gridItems = document.querySelectorAll(".grid-item");
 
@@ -105,7 +60,56 @@ function changeColorToShadesOfGray(e) {
   e.target.style.opacity = +e.target.style.opacity - 0.1;
 }
 
+// Change-colour-buttons' functionality.
+
+const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
+const colourSchemeColourfulBtn = document.querySelector(
+  "#js-colour-scheme-colourful"
+);
+const colourSchemeGrayBtn = document.querySelector("#js-colour-scheme-gray");
+
+colourSchemeBlackBtn.addEventListener("click", (e) => {
+  colourScheme = "black";
+  e.target.classList.add("button-toggled");
+  colourSchemeColourfulBtn.classList.remove("button-toggled");
+  colourSchemeGrayBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColouring();
+});
+
+colourSchemeColourfulBtn.addEventListener("click", (e) => {
+  colourScheme = "colourful";
+  e.target.classList.add("button-toggled");
+  colourSchemeBlackBtn.classList.remove("button-toggled");
+  colourSchemeGrayBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColouring();
+});
+
+colourSchemeGrayBtn.addEventListener("click", (e) => {
+  colourScheme = "gray";
+  e.target.classList.add("button-toggled");
+  colourSchemeBlackBtn.classList.remove("button-toggled");
+  colourSchemeColourfulBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColouring();
+});
+
+// Create initial grid.
+
+function createInitialGrid() {
+  createGridItems(customSize);
+  colourSchemeBlackBtn.classList.add("button-toggled");
+  addHoverColouring();
+}
+
+createInitialGrid();
+
 // Custom grid functionality.
+
 const customGridBtn = document.querySelector("#js-custom-grid-button");
 
 customGridBtn.addEventListener("click", createCustomGrid);
@@ -137,6 +141,7 @@ function getCustomGridSize() {
 }
 
 // Remove grid functionality.
+
 function removeGrid() {
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
@@ -144,6 +149,7 @@ function removeGrid() {
 }
 
 // Clear grid functionality.
+
 const clearGridBtn = document.querySelector("#js-clear-grid-button");
 
 clearGridBtn.addEventListener("click", clearGrid);
@@ -156,6 +162,7 @@ function clearGrid() {
 }
 
 // Reset to default functionality.
+
 const resetToDefaultBtn = document.querySelector("#js-reset-to-default-button");
 
 resetToDefaultBtn.addEventListener("click", resetToDefault);
