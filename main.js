@@ -15,7 +15,12 @@ let customSize = 16;
 let colourScheme = "black";
 
 // Create initial grid.
-createGridItems(customSize);
+function createInitialGrid() {
+  createGridItems(customSize);
+  colourSchemeBlackBtn.classList.add("button-toggled");
+}
+
+createInitialGrid();
 
 // Colouring functionality.
 let gridItems = document.querySelectorAll(".grid-item");
