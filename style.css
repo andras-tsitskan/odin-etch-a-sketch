@@ -57,6 +57,10 @@ button {
   padding: 0 0.5rem;
 }
 
+.button-toggled {
+  background-color: gold;
+}
+
 a {
   text-decoration: none;
   color: black;
