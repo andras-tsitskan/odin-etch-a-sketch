@@ -18,6 +18,7 @@ let colourScheme = "black";
 function createInitialGrid() {
   createGridItems(customSize);
   colourSchemeBlackBtn.classList.add("button-toggled");
+  addHoverColoring();
 }
 
 createInitialGrid();
@@ -81,6 +82,10 @@ function removeGrid() {
 
 function addHoverColoring() {
   gridItems = document.querySelectorAll(".grid-item");
+
+  for (const item of gridItems) {
+    item.addEventListener("mouseenter", changeColorToBlack);
+  }
 
   switch (colourScheme) {
     case "black":
