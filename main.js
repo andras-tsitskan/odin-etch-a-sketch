@@ -2,6 +2,43 @@
 
 const grid = document.querySelector(".grid");
 
+// Change-colour-buttons' functionality.
+
+const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
+const colourSchemeColourfulBtn = document.querySelector(
+  "#js-colour-scheme-colourful"
+);
+const colourSchemeGrayBtn = document.querySelector("#js-colour-scheme-gray");
+
+colourSchemeBlackBtn.addEventListener("click", (e) => {
+  colourScheme = "black";
+  e.target.classList.add("button-toggled");
+  colourSchemeColourfulBtn.classList.remove("button-toggled");
+  colourSchemeGrayBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColoring();
+});
+
+colourSchemeColourfulBtn.addEventListener("click", (e) => {
+  colourScheme = "colourful";
+  e.target.classList.add("button-toggled");
+  colourSchemeBlackBtn.classList.remove("button-toggled");
+  colourSchemeGrayBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColoring();
+});
+
+colourSchemeGrayBtn.addEventListener("click", (e) => {
+  colourScheme = "gray";
+  e.target.classList.add("button-toggled");
+  colourSchemeBlackBtn.classList.remove("button-toggled");
+  colourSchemeColourfulBtn.classList.remove("button-toggled");
+  removeGrid();
+  createGridItems(customSize);
+  addHoverColoring();
+});
 function createGridItems(squaresPerSide) {
   for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
     let newGridItem = document.createElement("div");
