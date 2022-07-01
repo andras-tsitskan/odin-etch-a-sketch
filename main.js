@@ -15,7 +15,7 @@ let customSize = 16;
 let colourScheme = "black";
 
 // Create initial grid.
-createGridItems(16);
+createGridItems(customSize);
 
 // Colouring functionality.
 let gridItems = document.querySelectorAll(".grid-item");
