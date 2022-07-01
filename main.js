@@ -24,10 +24,27 @@ function createInitialGrid() {
 createInitialGrid();
 
 // Colouring functionality.
-let gridItems = document.querySelectorAll(".grid-item");
+function addHoverColoring() {
+  gridItems = document.querySelectorAll(".grid-item");
 
-for (const item of gridItems) {
-  item.addEventListener("mouseenter", changeColorToBlack);
+  switch (colourScheme) {
+    case "black":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToBlack);
+      }
+      break;
+    case "colourful":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToColorful);
+      }
+      break;
+
+    case "gray":
+      for (const item of gridItems) {
+        item.addEventListener("mouseenter", changeColorToShadesOfGray);
+      }
+      break;
+  }
 }
 
 function changeColorToBlack(e) {
