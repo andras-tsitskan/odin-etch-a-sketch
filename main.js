@@ -27,9 +27,6 @@ for (const item of gridItems) {
 function changeColorToBlack(e) {
   e.target.style.backgroundColor = "black";
 }
-// function changeColorToBlack(e) {
-//   e.target.classList.add("grid-item-hovered");
-// }
 
 function changeColorToColorful(e) {
   let redRGB = Math.round(Math.random() * 255);
@@ -111,11 +108,6 @@ function clearGrid() {
     item.style.opacity = 1;
   }
 }
-// function clearGrid() {
-//   for (const item of gridItems) {
-//     item.classList.remove("grid-item-hovered");
-//   }
-// }
 
 const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
 const colourSchemeColourfulBtn = document.querySelector(
