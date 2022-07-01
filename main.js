@@ -1,7 +1,11 @@
 "use strict";
 
+// Set initial (default) values.
+let customSize = 16;
+let colourScheme = "black";
 let isInputCorrect = true;
 const grid = document.querySelector(".grid");
+let gridItems = document.querySelectorAll(".grid-item");
 
 // Change-colour-buttons' functionality.
 const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
