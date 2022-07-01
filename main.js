@@ -1,5 +1,6 @@
 "use strict";
 
+let isInputCorrect = true;
 const grid = document.querySelector(".grid");
 
 // Change-colour-buttons' functionality.
@@ -107,19 +108,24 @@ customGridBtn.addEventListener("click", createCustomGrid);
 
 function createCustomGrid() {
   getCustomGridSize();
-  removeGrid();
-  grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
-  createGridItems(customSize);
-  addHoverColouring();
+  if (isInputCorrect === false) {
+    isInputCorrect = true; // Otherwise, once inserted wrong input, next correct input is treated as wrong input.
+  } else {
+    removeGrid();
+    grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
+    createGridItems(customSize);
+    addHoverColouring();
+  }
 }
 
 function getCustomGridSize() {
+  let tempCustomSize = customSize; // Necessary for the prompt not to mess with the value.
   customSize = prompt("How many squares per side? Max is 100.");
   if (customSize < 1 || customSize > 100 || isNaN(customSize)) {
-    alert("Wrong input. Resetting to default.");
-    customSize = 16;
-    return customSize;
+    alert("Wrong input.");
+    isInputCorrect = false;
+    customSize = tempCustomSize; // customSize equals its value before prompt.
   } else {
     customSize = Math.floor(customSize);
     return customSize;
