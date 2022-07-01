@@ -3,7 +3,6 @@
 const grid = document.querySelector(".grid");
 
 // Change-colour-buttons' functionality.
-
 const colourSchemeBlackBtn = document.querySelector("#js-colour-scheme-black");
 const colourSchemeColourfulBtn = document.querySelector(
   "#js-colour-scheme-colourful"
@@ -17,7 +16,7 @@ colourSchemeBlackBtn.addEventListener("click", (e) => {
   colourSchemeGrayBtn.classList.remove("button-toggled");
   removeGrid();
   createGridItems(customSize);
-  addHoverColoring();
+  addHoverColouring();
 });
 
 colourSchemeColourfulBtn.addEventListener("click", (e) => {
@@ -27,7 +26,7 @@ colourSchemeColourfulBtn.addEventListener("click", (e) => {
   colourSchemeGrayBtn.classList.remove("button-toggled");
   removeGrid();
   createGridItems(customSize);
-  addHoverColoring();
+  addHoverColouring();
 });
 
 colourSchemeGrayBtn.addEventListener("click", (e) => {
@@ -37,7 +36,7 @@ colourSchemeGrayBtn.addEventListener("click", (e) => {
   colourSchemeColourfulBtn.classList.remove("button-toggled");
   removeGrid();
   createGridItems(customSize);
-  addHoverColoring();
+  addHoverColouring();
 });
 function createGridItems(squaresPerSide) {
   for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
@@ -55,13 +54,13 @@ let colourScheme = "black";
 function createInitialGrid() {
   createGridItems(customSize);
   colourSchemeBlackBtn.classList.add("button-toggled");
-  addHoverColoring();
+  addHoverColouring();
 }
 
 createInitialGrid();
 
 // Colouring functionality.
-function addHoverColoring() {
+function addHoverColouring() {
   gridItems = document.querySelectorAll(".grid-item");
 
   switch (colourScheme) {
@@ -75,7 +74,6 @@ function addHoverColoring() {
         item.addEventListener("mouseenter", changeColorToColorful);
       }
       break;
-
     case "gray":
       for (const item of gridItems) {
         item.addEventListener("mouseenter", changeColorToShadesOfGray);
@@ -103,7 +101,7 @@ function changeColorToShadesOfGray(e) {
 }
 
 // Custom grid functionality.
-const customGridBtn = document.querySelector("#custom-grid-button");
+const customGridBtn = document.querySelector("#js-custom-grid-button");
 
 customGridBtn.addEventListener("click", createCustomGrid);
 
@@ -113,7 +111,7 @@ function createCustomGrid() {
   grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
   createGridItems(customSize);
-  addHoverColoring();
+  addHoverColouring();
 }
 
 function getCustomGridSize() {
@@ -128,41 +126,15 @@ function getCustomGridSize() {
   }
 }
 
+// Remove grid functionality.
 function removeGrid() {
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
   }
 }
 
-function addHoverColoring() {
-  gridItems = document.querySelectorAll(".grid-item");
-
-  for (const item of gridItems) {
-    item.addEventListener("mouseenter", changeColorToBlack);
-  }
-
-  switch (colourScheme) {
-    case "black":
-      for (const item of gridItems) {
-        item.addEventListener("mouseenter", changeColorToBlack);
-      }
-      break;
-    case "colourful":
-      for (const item of gridItems) {
-        item.addEventListener("mouseenter", changeColorToColorful);
-      }
-      break;
-
-    case "gray":
-      for (const item of gridItems) {
-        item.addEventListener("mouseenter", changeColorToShadesOfGray);
-      }
-      break;
-  }
-}
-
 // Clear grid functionality.
-const clearGridBtn = document.querySelector("#clear-grid-button");
+const clearGridBtn = document.querySelector("#js-clear-grid-button");
 
 clearGridBtn.addEventListener("click", clearGrid);
 
@@ -188,5 +160,5 @@ function resetToDefault() {
   grid.style.gridTemplateColumns = `repeat(${customSize}, 1fr)`;
   grid.style.gridTemplateRows = `repeat(${customSize}, 1fr)`;
   createGridItems(customSize);
-  addHoverColoring();
+  addHoverColouring();
 }
