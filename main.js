@@ -10,6 +10,10 @@ function createGridItems(squaresPerSide) {
   }
 }
 
+// Set initial (default) values.
+let customSize = 16;
+let colourScheme = "black";
+
 // Create initial grid.
 createGridItems(16);
 
@@ -54,8 +58,6 @@ function createCustomGrid() {
   createGridItems(customSize);
   addHoverColoring();
 }
-
-let customSize;
 
 function getCustomGridSize() {
   customSize = prompt("How many squares per side? Max is 100.");
